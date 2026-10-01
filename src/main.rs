@@ -12,6 +12,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().collect();
     let argc = args.len();
 
+    if argc == 0 {
+        panic!("you need to insert a pokemon name");
+    }
     let file = File::open(PATH)?;
 
     let mut reader = csv::Reader::from_reader(file);
