@@ -30,28 +30,27 @@ impl fmt::Display for Pokemon {
             "=".repeat((val.max(0) / 60) as usize)
         };
 
-        writeln!(f, "— {} N.{} —", self.name,self.number)?;
-        writeln!(f, "Generazione: {}", self.generation)?;
+        writeln!(f, "— {} No.{} —", self.name,self.number)?;
+        writeln!(f, "Generation: {}", self.generation)?;
         
         if self.typetwo != "" {
-            writeln!(f, "Tipo:        {} / {}", self.typeone, self.typetwo)?;
+            writeln!(f, "Type:        {} / {}", self.typeone, self.typetwo)?;
         } else {
-            writeln!(f, "Tipo:        {}", self.typeone)?;
+            writeln!(f, "Type:        {}", self.typeone)?;
         }
         
-        writeln!(f, "Leggendario: {}", if self.legendary>0 { "Sì" } else { "No" })?;
+        writeln!(f, "Legendary: {}", if self.legendary>0 { "Yes" } else { "No" })?;
         writeln!(f, "———————————————————————————————")?;
 
-        // Tutti i campi sono ora in minuscolo per corrispondere alla struct
         writeln!(f, "HP:       {:3} \"{}\"", self.hp, bar_single(self.hp))?;
-        writeln!(f, "Attacco:  {:3} \"{}\"", self.attack, bar_single(self.attack))?;
-        writeln!(f, "Difesa:   {:3} \"{}\"", self.defense, bar_single(self.defense))?;
+        writeln!(f, "Attack:   {:3} \"{}\"", self.attack, bar_single(self.attack))?;
+        writeln!(f, "Defense:  {:3} \"{}\"", self.defense, bar_single(self.defense))?;
         writeln!(f, "Sp. Atk:  {:3} \"{}\"", self.spattack, bar_single(self.spattack))?;
         writeln!(f, "Sp. Def:  {:3} \"{}\"", self.spdefense, bar_single(self.spdefense))?;
-        writeln!(f, "Velocità: {:3} \"{}\"", self.speed, bar_single(self.speed))?;
+        writeln!(f, "Speed:    {:3} \"{}\"", self.speed, bar_single(self.speed))?;
         
         writeln!(f, "———————————————————————————————")?;
-        writeln!(f, "TOTALE:   {:3} \"{}\"", self.total, bar_total(self.total))
+        writeln!(f, "TOTAL:    {:3} \"{}\"", self.total, bar_total(self.total))
     }
 }
 
